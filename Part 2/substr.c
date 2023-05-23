@@ -1,27 +1,44 @@
 #include "libft.h"
 
+static char *ft_strncpy(char *dest, const char *src, size_t num)
+{
+    char *ptr;
+
+    if (dest == 0 || src == 0)
+        return (dest);
+    ptr = dest;
+    while (*src && num > 0)
+    {
+        *dest++ = *src++;
+        num--;
+    }
+    while (num--)
+        *dest++ = '\0';
+    return (ptr);
+}
+
 char *ft_substr(char const *s, unsigned int start, size_t len)
 {
+    char *sub;
     size_t count;
-    char *str;
-    size_t temp;
+    size_t size_s;
 
-    if(s == 0)
-        return(NULL);    
-    count = 0;
-    temp = ft_strlen((char *)s);
-    str = (char *)malloc(sizeof(char) * len + 1);
-    if(str == 0)
-        return(NULL);
-    if(start >= temp || start - temp <= len)
-        return("");
-    while(count < len)
-    {
-        str[count] = s[start + count];
-        count++;
-    }
-    str[count] = '\0';
-    return(str);
+    if (s == NULL)
+        return (0);
+    size_s = ft_strlen((char *)s);
+    if (start >= size_s || start - size_s <= len)
+        return (ft_strdup(""));
+    count = len;
+    if (len < 0)
+        count = size_s - start;
+    if (start + count > size_s)
+        count = size_s - start;
+    sub = (char *)malloc(sizeof(char) * count + 1);
+    if (sub == NULL)
+        return (NULL);
+    ft_strncpy(sub, s + start, count);
+    sub[count] = 0;
+    return (sub);
 }
 
 // #include<stdio.h>
