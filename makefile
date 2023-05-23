@@ -21,7 +21,7 @@ SRC =
 		lstlast.c \
 		lstiteri.c lstmap.c \
 
-OBJ = $(addprefix $(BUILD), $(SRC:.c=.o)) # sintaxe básica -> $(addprefix <prefixo>, <lista_de_palavras>)
+OBJ = $(addprefix $(BUILD), $(SRC:.c=.o)) #sintaxe básica -> $(addprefix <prefixo>, <lista_de_palavras>)
 
 all: $(NAME)
 
