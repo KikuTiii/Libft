@@ -12,4 +12,7 @@ t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
         new->next = ft_lstmap(lst->next,f,del);
         return(new);
     }
+    else
+        ft_lstclear(&new, del);
+        return(NULL);
 }
