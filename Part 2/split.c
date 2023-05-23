@@ -1,80 +1,85 @@
 #include "libft.h"
 
-int ft_count(char const *s, char c)
+static int	ft_count(char const *s, char c)
 {
-	int count;
-	int i;
+	int		count;
+	int		i;
 
 	count = 0;
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
+		if (s[i] == c)
+			i++;
+		else
+		{
 			count++;
-		i++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
 	}
 	return (count);
 }
 
-char *ft_strndup(const char *src, size_t n)
+static int	ft_move(char **str, const char *s, int len, int *count)
 {
-	unsigned int index;
-	char *dest;
+	int	i;
 
-	if (src == 0)
+	str[*count] = (char *)malloc((len + 1) * sizeof(char));
+	if (str[*count] == 0)
+	{
+		i = 0;
+		while (*count > i)
+		{
+			free(str[i++]);
+		}
+		return (1);
+	}
+	ft_memcpy(str[*count], s, len);
+	str[*count][len] = 0;
+	(*count)++;
+	return (0);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	int		index;
+	int		count;
+	int		position;
+	char	**str;
+
+	str = (char **)malloc((ft_count(s, c) + 1) * sizeof(char *));
+	if (str == NULL)
 		return (NULL);
 	index = 0;
-	dest = malloc(ft_strlen((char *)src) + 1);
-	if (dest == 0)
-		return (0);
-	while (index < n)
-	{
-		dest[index] = src[index];
-		index++;
-	}
-	dest[index] = '\0';
-	return (dest);
-}
-
-char **ft_split(char const *s, char c)
-{
-	int i;
-	int count;
-	int size;
-	char **tab;
-
-	if (s == 0)
-		return (NULL);
-	i = 0;
 	count = 0;
-	tab = (char **)malloc(sizeof(char *) * (ft_count(s, c)) + 1);
-	if (tab == 0)
-		return (NULL);
-	while(s[count] != '\0')
+	while (s[index])
 	{
-		while(s[count] == c)
-			count++;
-			size = count;
-		while(s[count] && s[count] != c)
-			count++;
-		if(count > size)
-			tab[i++] = ft_strndup(s + size, count - size);
+		while (s[index] == c)
+			index++;
+		position = index;
+		while (s[index] && s[index] != c)
+			index++;
+		if (index > position)
+		{
+			if (ft_move(str, s + position, index - position, &count))
+				break ;
+		}
 	}
-	tab[i] = '\0';
-	return(tab);
+	str[count] = NULL;
+	return (str);
 }
 
-// #include<stdio.h>
+// #include <stdio.h>
 // int	main(void)
 // {
-// 	char s[] = "****Kikutz***Leon***Nathan***";
+// 	char s[] = "*****Kikutz*****Leon******Nathan******";
 // 	char c = '*';
 // 	char **ret;
 // 	size_t index;
-
 // 	index = 0;
 // 	ret = ft_split(s, c);
 // 	while (ret[index] != 0)
-// 		printf("%s ", ret[index++]);
-// 	return (0);
+// 		printf("%s, ", ret[index++]);
+// return (0);
 // }
