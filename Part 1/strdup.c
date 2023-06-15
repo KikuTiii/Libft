@@ -1,32 +1,21 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include"libft.h"
 
-int ft_strlen(char *str)
+char	*ft_strdup(char *src)
 {
-    int count;
+	unsigned int		index;
+	char				*dest;
 
-    count = 0;
-    while (str[count] != '\0')
-    {
-        count++;
-    }
-    return (count);
-}
-
-char *ft_strdup(char *src)
-{
-    int count;
-    char *dest;
-
-    dest = malloc(ft_strlen(src + 1));
-    while (src[count] != '\0')
-    {
-        dest[count] = src[count];
-        count++;
-    }
-    dest[count] = '\0';
-    return (dest);
+	index = 0;
+	dest = malloc(ft_strlen(src) + 1);
+	if (dest == 0)
+		return (0);
+	while (src[index])
+	{
+		dest[index] = src[index];
+		index++;
+	}
+	dest[index] = '\0';
+	return (dest);
 }
 
 // int main(void)
