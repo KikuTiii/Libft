@@ -1,33 +1,32 @@
-#include <stdio.h>
-#include <string.h>
+#include"libft.h"
 
-char    *ft_strnstr(const char *big, const char *little, size_t len)
+void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
-    int            count;
-    int            counter;
-    const char    *temp;
-    const char    *str1;
-    const char    *str2;
+	char		*dest1;
+	const char	*dest2;
+	size_t		index;
 
-    count = 0;
-    counter = 0;
-    str1 = (const char *)big;
-    str2 = (const char *)little;
-    while (count < len)
-    {
-        if (str1[count] == str2[counter])
-        {
-            temp = (char *) &big[count];
-            while (count < len)
-            {
-                count++;
-                if (++counter == strlen(str2))
-                    return ((char *)temp);
-            }
-        }
-        count++;
-    }
-    return (0);
+	index = 0;
+	dest1 = (char *)str1;
+	dest2 = (const char *)str2;
+	if (str1 == 0 && str2 == 0)
+		return (str1);
+	if (dest1 > dest2)
+	{
+		while (n--)
+		{
+			dest1[n] = dest2[n];
+		}
+	}
+	else
+	{
+		while (index < n)
+		{
+			dest1[index] = dest2[index];
+			index++;
+		}
+	}
+	return (str1);
 }
 
 // int main () {
