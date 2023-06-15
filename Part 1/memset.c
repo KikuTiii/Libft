@@ -1,20 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include"libft.h"
 
-void *ft_memset(void *ptr, int c, size_t n)
+void	*ft_memset(void *str, int c, size_t size)
 {
-    int count;
-    char *set;
+	size_t	index;
+	char	*src;
 
-    set = (char *)ptr;
-    count = 0;
-    while (count < n)
-    {
-        set[count] = c;
-        count++;
-    }
-    return (set);
+	index = 0;
+	src = (char *)str;
+	while (index < size)
+	{
+		src[index] = c;
+		index++;
+	}
+	return (src);
 }
+
 
 // #include <string.h>
 
