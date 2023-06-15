@@ -1,23 +1,21 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
+#include"libft.h"
 
-int ft_memcmp(const void *str1, const void *str2, size_t n)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-    int count;
-    char *strOne;
-    char *strTwo;
+	size_t			count;
+	unsigned char	*dest1;
+	unsigned char	*dest2;
 
-    strOne = (char *)str1;
-    strTwo = (char *)str2;
-    count = 0;
-    while (count < n)
-    {
-        if (strOne[count] != strTwo[count])
-            return (strOne[count] - strTwo[count]);
-        count++;
-    }
-    return (0);
+	dest1 = (unsigned char *)str1;
+	dest2 = (unsigned char *)str2;
+	count = 0;
+	while (count < n)
+	{
+		if (dest1[count] != dest2[count])
+			return (dest1[count] - dest2[count]);
+		count++;
+	}
+	return (0);
 }
 
 // int main()
