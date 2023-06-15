@@ -1,25 +1,19 @@
-#include <stdio.h>
-#include <string.h>
+#include"libft.h"
 
-char *ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
-    int count;
-    char *str2;
-    char size;
+	int		count;
+	char	*s;
 
-    str2 = (char *)str;
-    size = strlen(str2);
-    while (size != 0)
-    {
-        if (str2[size] == c)
-        {
-            return ((char *) &str2[size]);
-        }
-        size--;
-    }
-    if (str2[size] == c)
-        return ((char *)&str2[size]);
-    return (0);
+	s = (char *) str;
+	count = ft_strlen(s);
+	while (count >= 0)
+	{
+		if (s[count] == (unsigned char)c)
+			return (&s[count]);
+		count--;
+	}
+	return (0);
 }
     
 // int main(void)
