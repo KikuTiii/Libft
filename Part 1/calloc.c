@@ -1,20 +1,20 @@
-#include "libft.h"
+#include"libft.h"
 
-void *ft_calloc(size_t size_elements, size_t size_bytes)
+void	*ft_calloc(size_t nitems, size_t size)
 {
-    size_t count;
-    void *dest;
+	void	*ptr;
+	size_t	number;
 
-    count = size_elements * size_bytes;
-    if (size_elements != 0 && count / size_elements != size_bytes)
-        return (NULL);
-    if (size_elements == 0 && size_bytes == 0)
-        return (NULL);
-    dest = malloc(count);
-    if (!dest)
-        return (NULL);
-    ft_bzero(dest, count);
-    return (dest);
+	number = nitems * size;
+	if (nitems == 0 || size == 0)
+		return (malloc(0));
+	if (number / nitems != size)
+		return (NULL);
+	ptr = malloc(number);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, number);
+	return (ptr);
 }
 
 // #include <stdio.h>
