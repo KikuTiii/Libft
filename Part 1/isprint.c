@@ -1,14 +1,8 @@
-#include <unistd.h>
-#include <stdio.h>
+#include"libft.h"
 
-int ft_isprint(int ch)
+int	ft_isprint(int c)
 {
-    if(!(ch >= 32 && ch <= 126))
-    {
-        return(0);
-    }
-    else
-    return(1);
+	return (c >= ' ' && c <= '~');
 }
 
 // int main (void)
