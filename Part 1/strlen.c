@@ -1,14 +1,11 @@
-#include <unistd.h>
-#include <stdio.h>
-
-int ft_strlen (char *str)
+int	ft_strlen(const char *str)
 {
-    int count;
+	int	size;
 
-    count = 0;
-    while(str[count] != '\0')
-    {
-        count++;
-    }
-    return(count);
+	size = 0;
+	while (str[size] != '\0')
+	{
+		size++;
+	}
+	return (size);
 }
