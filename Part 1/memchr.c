@@ -1,23 +1,19 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include"libft.h"
 
-void *ft_memchr(const void *str, int c, size_t n)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-    int count;
-    char *set;
+	size_t			count;
+	unsigned char	*src;
 
-    set = (char *)str;
-    count = 0;
-    while (count < n)
-    {
-        if (set[count] == c)
-        {
-            return ((char *)&set[count]);
-        }
-        count++;
-    }
-    return (0);
+	count = 0;
+	src = (unsigned char *)str;
+	while (count < n)
+	{
+		if (src[count] == (unsigned char)c)
+			return (&src[count]);
+		count++;
+	}
+	return (0);
 }
 
 // int main(void)
