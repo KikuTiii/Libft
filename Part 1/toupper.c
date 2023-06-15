@@ -1,18 +1,6 @@
-#include <stdio.h>
-#include <unistd.h>
-
-int ft_toupper(int ch)
+int	ft_toupper(int c)
 {
-    if(ch >= 97 && ch <= 122)
-    {
-        return(ch + 32);
-    }
-    else if(ch >= 65 && ch <= 90)
-    {
-        return(ch);
-    }
-    else
-    {
-        return(0);
-    }
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }
