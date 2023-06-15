@@ -1,27 +1,20 @@
-#include <string.h>
-#include <stdio.h>
-
-char *ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
-    int count;
-    char *str2;
-    char *temp;
+	int		count;
+	char	*s;
 
-    count = 0;
-    str2 = (char *)str;
-    while (str2[count] != '\0')
-    {
-        if (str2[count] == c)
-        {
-            return ((char *)&str2[count]);
-        }
-        count++;
-    }
-    if (str2[count] == c)
-        return ((char *)&str2[count]);
-    return (0);
+	count = 0;
+	s = (char *)str;
+	while (s[count])
+	{
+		if (s[count] == (unsigned char)c)
+			return (&s[count]);
+		count++;
+	}
+	if (s[count] == (unsigned char)c)
+		return (&s[count]);
+	return (0);
 }
-
 // int main(void)
 // {
 //     const char str[] = "test test test";
