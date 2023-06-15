@@ -1,22 +1,21 @@
-#include <unistd.h>
-#include <stdio.h>
-
-int    ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
-    unsigned int i;
+	unsigned char	*dest1;
+	unsigned char	*dest2;
+	unsigned int	index;
 
-    i = 0;
-    while(s1[i] != '\0' && s2[i] != '\0')
-    {
-        if(s1[i] < s2[i] && i < n)
-        return(s1[i] - s2[i]);
-        else if(s1[i] > s2[i])
-        {
-            return(s1[i] - s2[i]);
-        }
-        i++;
-    }
-    return(0);
+	dest1 = (unsigned char *)s1;
+	dest2 = (unsigned char *)s2;
+	index = 0;
+	while ((index < n) && (dest1[index] != '\0' || dest2[index] != '\0'))
+	{
+		if (index < n && dest1[index] != dest2[index])
+		{
+			return (dest1[index] - dest2[index]);
+		}
+		index++;
+	}
+	return (0);
 }
 
 // int main (void)
