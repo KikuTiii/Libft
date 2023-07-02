@@ -6,7 +6,7 @@ Part 1 - C Libft
 
 **Conteúdo:**
 
--  **ft_isalpha =>** The isalpha() function in C is used to check whether a character is an alphabet or not.<hr>
+-  **ft_isalpha =>** The isalpha() function in C is used to check whether a character is an alphabet or not<hr>
 -  **ft_isdigit =>** The isdigit() function is used to check whether the character is a numeric character from 0 to 9 or not.<hr>
 -  **ft_isalnum =>** The isalnum() function of C checks if a given character is alphanumeric or not.<hr>
 -  **ft_isascii =>** The isascii() function shall test whether c is a 7-bit US-ASCII character code.<hr>
